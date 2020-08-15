@@ -17,8 +17,13 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
     private TransitionController tc;
+    private Camera cam;
 
     private int curLevel;
+    private bool scaled;
+
+    private Pickup level4Box;
+    private Pickup level5Box;
 
     // Start is called before the first frame update
     void Start()
@@ -30,11 +35,17 @@ public class PlayerController : MonoBehaviour
 
         rb = this.GetComponent<Rigidbody>();
         tc = GameObject.Find("TransitionController").GetComponent<TransitionController>();
+        cam = Camera.main.GetComponent<Camera>();
 
         curLevel = 1;
 
         Vector3 gravityS = new Vector3(0, GravityStrength, 0);
         Physics.gravity = gravityS;
+
+        scaled = false;
+
+        level4Box = GameObject.Find("Level 4 Box").GetComponent<Pickup>();
+        level5Box = GameObject.Find("Level 5 Box").GetComponent<Pickup>();
     }
 
     // Update is called once per frame
@@ -157,6 +168,21 @@ public class PlayerController : MonoBehaviour
         if(collider.name == "Transition 4 to 5")
         {
             curLevel = 5;
+            level4Box.resetPosition();
+            level4Box.reset = false;
+        }
+        if(collider.name == "Transition 5 to 6")
+        {
+            curLevel = 6;
+            level5Box.resetPosition();
+            level5Box.reset = false;
+
+            if(scaled == false)
+            {
+                this.transform.localScale += new Vector3(0.5f, 0, 0.5f);
+                scaled = true;
+                print("fixed scaling");
+            }
         }
     }
 }

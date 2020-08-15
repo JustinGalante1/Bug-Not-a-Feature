@@ -18,6 +18,7 @@ public class Pickup : MonoBehaviour
     private Vector3 spawnScale;
 
     private bool beingHeld = false;
+    public bool reset = false;
 
     private void Start()
     {
@@ -39,12 +40,10 @@ public class Pickup : MonoBehaviour
     {
         if(rb.transform.position.y < -3)
         {
-            rb.transform.position = spawnPosition;
-            rb.transform.rotation = spawnRotation;
-            rb.transform.localScale = spawnScale;
-            mat.color = notHighlighted;
+            resetPosition();
+            reset = false;
         }
-        if (beingHeld)
+        if (beingHeld && !reset)
         {   
             rb.transform.position = playerHand.transform.position;
         }
@@ -84,5 +83,15 @@ public class Pickup : MonoBehaviour
         {
             mat.color = notHighlighted;
         }
+    }
+
+    public void resetPosition()
+    {
+        reset = true;
+        beingHeld = false;
+        rb.transform.position = spawnPosition;
+        rb.transform.rotation = spawnRotation;
+        rb.transform.localScale = spawnScale;
+        mat.color = notHighlighted;
     }
 }
