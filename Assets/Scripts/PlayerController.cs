@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private TransitionController tc;
     private Camera cam;
+    private GameObject playerCenter;
+
+    private Vector3 normalScale;
+    private Vector3 halfScale;
 
     private int curLevel;
     private bool scaled;
@@ -36,8 +40,14 @@ public class PlayerController : MonoBehaviour
         rb = this.GetComponent<Rigidbody>();
         tc = GameObject.Find("TransitionController").GetComponent<TransitionController>();
         cam = Camera.main.GetComponent<Camera>();
+        playerCenter = GameObject.Find("PlayerStart");
 
-        curLevel = 1;
+        normalScale = this.transform.localScale;
+        print(normalScale);
+        halfScale = normalScale - new Vector3(0.5f, 0, 0.5f);
+        print(halfScale);
+
+        levelUpdater(1);
 
         Vector3 gravityS = new Vector3(0, GravityStrength, 0);
         Physics.gravity = gravityS;
@@ -83,7 +93,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector3(0f, 0f, 0f);
             if (curLevel <= 3)
-            {
+            { 
                 rb.transform.position = new Vector3(rb.transform.position.x, 3, rb.transform.position.z);
             }
             else
@@ -112,7 +122,6 @@ public class PlayerController : MonoBehaviour
             }
             else if(curLevel >= 3)
             {
-                print("hi");
                 if (isGrounded)
                 {
                     rb.AddForce(Vector3.up * jumpHeight);
@@ -152,41 +161,34 @@ public class PlayerController : MonoBehaviour
     {
         if(collider.name == "Transition 1 to 2")
         {
-            curLevel = 2;
+            levelUpdater(2);
         }
 
         if(collider.name == "Transition 2 to 3")
         {
-            curLevel = 3;
+            levelUpdater(3);
         }
 
         if(collider.name == "Transition 3 to 4")
         {
-            curLevel = 4;
+            levelUpdater(4);
         }
 
         if(collider.name == "Transition 4 to 5")
         {
-            curLevel = 5;
+            levelUpdater(5);
             level4Box.resetPosition();
             level4Box.reset = false;
         }
         if(collider.name == "Transition 5 to 6")
         {
-            curLevel = 6;
+            levelUpdater(6);
             level5Box.resetPosition();
             level5Box.reset = false;
-
-            if(scaled == false)
-            {
-                //this.transform.localScale = new Vector3(1f, 0, 1f);
-                scaled = true;
-            }
         }
         if(collider.name == "Transition 6 to 7")
         {
-            curLevel = 7;
-            cam.nearClipPlane = 0.1f;
+            levelUpdater(7);
         }
     }
 
@@ -195,36 +197,50 @@ public class PlayerController : MonoBehaviour
         if(level == 1)
         {
             curLevel = 1;
+            cam.nearClipPlane = 0.1f;
+            this.transform.localScale = normalScale;
         }
 
         if(level == 2)
         {
             curLevel = 2;
+            cam.nearClipPlane = 0.1f;
+            this.transform.localScale = normalScale;
         }
 
         if(level == 3)
         {
             curLevel = 3;
+            cam.nearClipPlane = 0.1f;
+            this.transform.localScale = normalScale;
         }
 
         if(level == 4)
         {
             curLevel = 4;
+            cam.nearClipPlane = 0.1f;
+            this.transform.localScale = halfScale;
         }
 
         if(level == 5)
         {
             curLevel = 5;
+            cam.nearClipPlane = 0.1f;
+            this.transform.localScale = halfScale;
         }
 
         if(level == 6)
         {
             curLevel = 6;
+            cam.nearClipPlane = 0.6f;
+            this.transform.localScale = normalScale;
         }
 
         if(level == 7)
         {
             curLevel = 7;
+            cam.nearClipPlane = 0.1f;
+            this.transform.localScale = normalScale;
         }
     }
 }
