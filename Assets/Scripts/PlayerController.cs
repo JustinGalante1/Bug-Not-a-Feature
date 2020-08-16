@@ -179,10 +179,52 @@ public class PlayerController : MonoBehaviour
 
             if(scaled == false)
             {
-                this.transform.localScale += new Vector3(0.5f, 0, 0.5f);
+                //this.transform.localScale = new Vector3(1f, 0, 1f);
                 scaled = true;
-                print("fixed scaling");
             }
+        }
+        if(collider.name == "Transition 6 to 7")
+        {
+            curLevel = 7;
+            cam.nearClipPlane = 0.1f;
+        }
+    }
+
+    private void levelUpdater(int level)
+    {
+        if(level == 1)
+        {
+            curLevel = 1;
+        }
+
+        if(level == 2)
+        {
+            curLevel = 2;
+        }
+
+        if(level == 3)
+        {
+            curLevel = 3;
+        }
+
+        if(level == 4)
+        {
+            curLevel = 4;
+        }
+
+        if(level == 5)
+        {
+            curLevel = 5;
+        }
+
+        if(level == 6)
+        {
+            curLevel = 6;
+        }
+
+        if(level == 7)
+        {
+            curLevel = 7;
         }
     }
 }
