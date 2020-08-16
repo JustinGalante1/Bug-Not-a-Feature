@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     private Pickup level4Box;
     private Pickup level5Box;
 
+    public static bool finished = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -160,16 +162,19 @@ public class PlayerController : MonoBehaviour
         if(collider.name == "Transition 1 to 2")
         {
             levelUpdater(2);
+            GameObject.Destroy(collider.gameObject);
         }
 
         if(collider.name == "Transition 2 to 3")
         {
             levelUpdater(3);
+            GameObject.Destroy(collider.gameObject);
         }
 
         if(collider.name == "Transition 3 to 4")
         {
             levelUpdater(4);
+            GameObject.Destroy(collider.gameObject);
         }
 
         if(collider.name == "Transition 4 to 5")
@@ -177,16 +182,20 @@ public class PlayerController : MonoBehaviour
             levelUpdater(5);
             level4Box.resetPosition();
             level4Box.reset = false;
+            GameObject.Destroy(collider.gameObject);
         }
         if(collider.name == "Transition 5 to 6")
         {
             levelUpdater(6);
             level5Box.resetPosition();
             level5Box.reset = false;
+            GameObject.Destroy(collider.gameObject);
         }
         if(collider.name == "Transition 6 to 7")
         {
+            finished = true;
             levelUpdater(7);
+            GameObject.Destroy(collider.gameObject);
         }
     }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -63,8 +64,11 @@ public class PauseMenu : MonoBehaviour
 
     public void openlevelSelect()
     {
-        menu.SetActive(false);
-        lsMenu.SetActive(true);
+        if (PlayerController.finished)
+        {
+            menu.SetActive(false);
+            lsMenu.SetActive(true);
+        }  
     }
 
     public void closeLevelSelect()
@@ -77,6 +81,12 @@ public class PauseMenu : MonoBehaviour
     {
         pc.levelUpdater(Int16.Parse(levelNum));
         Resume();
+    }
+
+    public void resetGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Game");
     }
 
     public void quitGame()
