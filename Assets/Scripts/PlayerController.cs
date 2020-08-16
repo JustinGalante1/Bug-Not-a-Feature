@@ -43,9 +43,7 @@ public class PlayerController : MonoBehaviour
         playerCenter = GameObject.Find("PlayerStart");
 
         normalScale = this.transform.localScale;
-        print(normalScale);
         halfScale = normalScale - new Vector3(0.5f, 0, 0.5f);
-        print(halfScale);
 
         levelUpdater(1);
 
@@ -143,7 +141,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if(curLevel == 2)
+        if (curLevel == 2)
         {
             isGrounded = true;
         }
@@ -192,8 +190,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void levelUpdater(int level)
+    public int getLevel()
     {
+        return this.curLevel;
+    }
+
+    public void levelUpdater(int level)
+    {
+        print("updating level to " + level);
         if(level == 1)
         {
             curLevel = 1;
