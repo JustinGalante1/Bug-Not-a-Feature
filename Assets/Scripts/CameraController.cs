@@ -26,14 +26,17 @@ public class CameraController : MonoBehaviour
 
     private void camControl()
     {
-        float rotationSpeed = 1;
-        mouseX += Input.GetAxis("Mouse X") * rotationSpeed;
-        mouseY -= Input.GetAxis("Mouse Y") * rotationSpeed;
-        mouseY = Mathf.Clamp(mouseY, -90, 95);
+        if (!PauseMenu.isPaused)
+        {
+            float rotationSpeed = 1;
+            mouseX += Input.GetAxis("Mouse X") * rotationSpeed;
+            mouseY -= Input.GetAxis("Mouse Y") * rotationSpeed;
+            mouseY = Mathf.Clamp(mouseY, -90, 95);
 
-        this.transform.position = player.transform.position + Vector3.up;
-        this.transform.rotation = Quaternion.Euler(mouseY, mouseX, 0);
-        player.transform.rotation = Quaternion.Euler(0, mouseX, 0);
-        face.transform.rotation = Quaternion.Euler(mouseY, mouseX, 0);
+            this.transform.position = player.transform.position + Vector3.up;
+            this.transform.rotation = Quaternion.Euler(mouseY, mouseX, 0);
+            player.transform.rotation = Quaternion.Euler(0, mouseX, 0);
+            face.transform.rotation = Quaternion.Euler(mouseY, mouseX, 0);
+        }
     }
 }
