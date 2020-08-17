@@ -9,7 +9,7 @@ public class Pickup : MonoBehaviour
     private Material mat;
 
     private Color notHighlighted;
-    private Color highLighted;
+    public Color highLighted;
 
     private Transform playerHand;
 
@@ -27,7 +27,6 @@ public class Pickup : MonoBehaviour
         mat = myRenderer.material;
 
         notHighlighted = mat.color;
-        highLighted = notHighlighted + new Color(10, 0, 0);
 
         playerHand = GameObject.Find("Hand").transform;
 

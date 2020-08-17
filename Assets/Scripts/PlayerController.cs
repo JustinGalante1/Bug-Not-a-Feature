@@ -232,7 +232,7 @@ public class PlayerController : MonoBehaviour
         {
             curLevel = 4;
             cam.nearClipPlane = 0.1f;
-            this.transform.localScale = halfScale;
+            this.transform.localScale = normalScale;
         }
 
         if(level == 5)
