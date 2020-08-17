@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour
         isGrounded = true;
 
         rb = this.GetComponent<Rigidbody>();
-        tc = GameObject.Find("TransitionController").GetComponent<TransitionController>();
         cam = Camera.main.GetComponent<Camera>();
         playerCenter = GameObject.Find("PlayerStart");
 
