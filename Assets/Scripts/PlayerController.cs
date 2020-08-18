@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 lastPosition;
 
     private Rigidbody rb;
-    private TransitionController tc;
     private Camera cam;
     private GameObject playerCenter;
 
@@ -158,43 +157,40 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if(collider.name == "Transition 1 to 2")
+        if (!finished)
         {
-            GameObject.Destroy(collider.gameObject);
-            levelUpdater(2);
-        }
+            if (collider.name == "Transition 1 to 2")
+            {
+                levelUpdater(2);
+            }
 
-        if(collider.name == "Transition 2 to 3")
-        {
-            GameObject.Destroy(collider.gameObject);
-            levelUpdater(3);
-        }
+            if (collider.name == "Transition 2 to 3")
+            {
+                levelUpdater(3);
+            }
 
-        if(collider.name == "Transition 3 to 4")
-        {
-            GameObject.Destroy(collider.gameObject);
-            levelUpdater(4);
-        }
+            if (collider.name == "Transition 3 to 4")
+            {
+                levelUpdater(4);
+            }
 
-        if(collider.name == "Transition 4 to 5")
-        {
-            GameObject.Destroy(collider.gameObject);
-            levelUpdater(5);
-            level4Box.resetPosition();
-            level4Box.reset = false;
-        }
-        if(collider.name == "Transition 5 to 6")
-        {
-            GameObject.Destroy(collider.gameObject);
-            levelUpdater(6);
-            level5Box.resetPosition();
-            level5Box.reset = false;
-        }
-        if(collider.name == "Transition 6 to 7")
-        {
-            GameObject.Destroy(collider.gameObject);
-            finished = true;
-            levelUpdater(7);
+            if (collider.name == "Transition 4 to 5")
+            {
+                levelUpdater(5);
+                level4Box.resetPosition();
+                level4Box.reset = false;
+            }
+            if (collider.name == "Transition 5 to 6")
+            {
+                levelUpdater(6);
+                level5Box.resetPosition();
+                level5Box.reset = false;
+            }
+            if (collider.name == "Transition 6 to 7")
+            {
+                finished = true;
+                levelUpdater(7);
+            }
         }
     }
 

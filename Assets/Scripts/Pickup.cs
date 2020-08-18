@@ -87,6 +87,7 @@ public class Pickup : MonoBehaviour
     public void resetPosition()
     {
         reset = true;
+        this.transform.parent = null;
         beingHeld = false;
         rb.transform.position = spawnPosition;
         rb.transform.rotation = spawnRotation;
