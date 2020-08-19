@@ -27,12 +27,14 @@ public class PlayerController : MonoBehaviour
 
     private Pickup level4Box;
     private Pickup level5Box;
+    private GameObject hiddenWall1;
+    private GameObject hiddenWall2;
 
     public static bool finished = false;
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         h = 0;
         v = 0;
 
@@ -45,15 +47,19 @@ public class PlayerController : MonoBehaviour
         normalScale = this.transform.localScale;
         halfScale = normalScale - new Vector3(0.5f, 0, 0.5f);
 
-        levelUpdater(1);
-
         Vector3 gravityS = new Vector3(0, GravityStrength, 0);
         Physics.gravity = gravityS;
 
         scaled = false;
+        finished = false;
 
         level4Box = GameObject.Find("Level 4 Box").GetComponent<Pickup>();
         level5Box = GameObject.Find("Level 5 Box").GetComponent<Pickup>();
+
+        hiddenWall1 = GameObject.Find("Hidden Wall1");
+        hiddenWall2 = GameObject.Find("Hidden Wall2");
+
+        levelUpdater(1);
     }
 
     // Update is called once per frame
@@ -108,6 +114,7 @@ public class PlayerController : MonoBehaviour
         {
             if(curLevel == 1)
             {
+                print("hi");
                 rb.AddForce(Vector3.up * jumpHeight);
             }
             else if(curLevel >= 2)
@@ -168,19 +175,18 @@ public class PlayerController : MonoBehaviour
 
             if (collider.name == "Transition 4 to 5")
             {
-                levelUpdater(5);
                 level4Box.resetPosition();
                 level4Box.reset = false;
+                levelUpdater(5);
             }
             if (collider.name == "Transition 5 to 6")
             {
-                levelUpdater(6);
                 level5Box.resetPosition();
                 level5Box.reset = false;
+                levelUpdater(6);
             }
             if (collider.name == "Transition 6 to 7")
             {
-                finished = true;
                 levelUpdater(7);
             }
         }
@@ -199,48 +205,63 @@ public class PlayerController : MonoBehaviour
             curLevel = 1;
             cam.nearClipPlane = 0.1f;
             this.transform.localScale = normalScale;
+            hiddenWall1.SetActive(true);
+            hiddenWall2.SetActive(true);
         }
 
-        if(level == 2)
+        else if(level == 2)
         {
             curLevel = 2;
             cam.nearClipPlane = 0.1f;
             this.transform.localScale = normalScale;
+            hiddenWall1.SetActive(true);
+            hiddenWall2.SetActive(true);
         }
 
-        if(level == 3)
+        else if(level == 3)
         {
             curLevel = 3;
             cam.nearClipPlane = 0.1f;
             this.transform.localScale = normalScale;
+            hiddenWall1.SetActive(false);
+            hiddenWall2.SetActive(false);
         }
 
-        if(level == 4)
+        else if(level == 4)
         {
             curLevel = 4;
             cam.nearClipPlane = 0.1f;
             this.transform.localScale = normalScale;
+            hiddenWall1.SetActive(true);
+            hiddenWall2.SetActive(true);
         }
 
-        if(level == 5)
+        else if(level == 5)
         {
             curLevel = 5;
             cam.nearClipPlane = 0.1f;
             this.transform.localScale = halfScale;
+            hiddenWall1.SetActive(true);
+            hiddenWall2.SetActive(true);
         }
 
-        if(level == 6)
+        else if(level == 6)
         {
             curLevel = 6;
             cam.nearClipPlane = 0.6f;
             this.transform.localScale = normalScale;
+            hiddenWall1.SetActive(true);
+            hiddenWall2.SetActive(true);
         }
 
-        if(level == 7)
+        else if(level == 7)
         {
             curLevel = 7;
             cam.nearClipPlane = 0.1f;
             this.transform.localScale = normalScale;
+            hiddenWall1.SetActive(true);
+            hiddenWall2.SetActive(true);
+            finished = true;
         }
     }
 }
