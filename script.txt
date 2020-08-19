@@ -1,0 +1,35 @@
+-----------------------------LVL 1-----------------------------
+"Good luck making that jump" (intro)
+"Pretty unlucky you only have one jump, isn't it" (hint)
+"Forgot to check if you're touching the ground before you jump. Classic" (close)
+-----------------------------LVL 2-----------------------------
+"What will you do now that you can't fly?" (intro)
+"Can't believe I forgot about the classic jump bug. Hope I fixed it properly..." (hint)
+"bruh" (close)
+-----------------------------LVL 3-----------------------------
+"Finally fixed jumping, but just in case, i'll stick you in a room with 4 padded walls to keep you in place" (intro)
+"Don't worry, you won't die in here. Probably" (hint)
+"idek what to say" (close)
+-----------------------------LVL 4-----------------------------
+"I'm not a bad coder, am I? I'm gettin tired of fixing all my mistakes..." (intro)
+"Made sure to lock the box up real tight" (hint)
+"I'm actually not sure how to fix that" (close)
+-----------------------------LVL 5-----------------------------
+"Two buttons, one box" (intro)
+"good thing the box is too small to hit both buttons" (hint)
+"I've never even seen that before" (close)
+-----------------------------LVL 6-----------------------------
+"here's a door you can't open" (intro)
+"bulbs are too bright again" (hint)
+"I guess sweeping my problems under the table doesn't work in games either..." (close)
+-----------------------------LVL 7-----------------------------
+"I'm tired of making levels, so here's the last one."
+"If you get super tilted, feel free to jump on the PURPLE button to go back to lvl 1. You were actually able to do something back then." 
+"Also, I finally got the Level Select to work, so you should try that out if you feel nostalgic" (intro)
+
+"hopefully the purple button and level select work how i think they do" (hint)
+"feelin pretty nostalgic" (hint)
+
+"i give up. I don't know how to program a game. ty for that." (close)
+
+

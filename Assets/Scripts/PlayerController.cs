@@ -23,12 +23,13 @@ public class PlayerController : MonoBehaviour
     private Vector3 halfScale;
 
     private int curLevel;
-    private bool scaled;
 
     private Pickup level4Box;
     private Pickup level5Box;
     private GameObject hiddenWall1;
     private GameObject hiddenWall2;
+
+    //private LevelIndicator levelIndicator;
 
     public static bool finished = false;
 
@@ -44,13 +45,14 @@ public class PlayerController : MonoBehaviour
         cam = Camera.main.GetComponent<Camera>();
         playerCenter = GameObject.Find("PlayerStart");
 
+        //levelIndicator = GameObject.Find("Level Indicator").GetComponent<LevelIndicator>();
+
         normalScale = this.transform.localScale;
-        halfScale = normalScale - new Vector3(0.5f, 0, 0.5f);
+        halfScale = normalScale - new Vector3(0.25f, 0, 0.25f);
 
         Vector3 gravityS = new Vector3(0, GravityStrength, 0);
         Physics.gravity = gravityS;
 
-        scaled = false;
         finished = false;
 
         level4Box = GameObject.Find("Level 4 Box").GetComponent<Pickup>();
@@ -114,7 +116,6 @@ public class PlayerController : MonoBehaviour
         {
             if(curLevel == 1)
             {
-                print("hi");
                 rb.AddForce(Vector3.up * jumpHeight);
             }
             else if(curLevel >= 2)
@@ -175,13 +176,13 @@ public class PlayerController : MonoBehaviour
 
             if (collider.name == "Transition 4 to 5")
             {
-                level4Box.resetPosition();
+                level4Box.resetPosition(true);
                 level4Box.reset = false;
                 levelUpdater(5);
             }
             if (collider.name == "Transition 5 to 6")
             {
-                level5Box.resetPosition();
+                level5Box.resetPosition(true);
                 level5Box.reset = false;
                 levelUpdater(6);
             }
@@ -207,6 +208,7 @@ public class PlayerController : MonoBehaviour
             this.transform.localScale = normalScale;
             hiddenWall1.SetActive(true);
             hiddenWall2.SetActive(true);
+            LevelIndicator.setLevel(1);
         }
 
         else if(level == 2)
@@ -216,6 +218,7 @@ public class PlayerController : MonoBehaviour
             this.transform.localScale = normalScale;
             hiddenWall1.SetActive(true);
             hiddenWall2.SetActive(true);
+            LevelIndicator.setLevel(2);
         }
 
         else if(level == 3)
@@ -225,6 +228,7 @@ public class PlayerController : MonoBehaviour
             this.transform.localScale = normalScale;
             hiddenWall1.SetActive(false);
             hiddenWall2.SetActive(false);
+            LevelIndicator.setLevel(3);
         }
 
         else if(level == 4)
@@ -234,6 +238,7 @@ public class PlayerController : MonoBehaviour
             this.transform.localScale = normalScale;
             hiddenWall1.SetActive(true);
             hiddenWall2.SetActive(true);
+            LevelIndicator.setLevel(4);
         }
 
         else if(level == 5)
@@ -243,6 +248,7 @@ public class PlayerController : MonoBehaviour
             this.transform.localScale = halfScale;
             hiddenWall1.SetActive(true);
             hiddenWall2.SetActive(true);
+            LevelIndicator.setLevel(5);
         }
 
         else if(level == 6)
@@ -252,6 +258,7 @@ public class PlayerController : MonoBehaviour
             this.transform.localScale = normalScale;
             hiddenWall1.SetActive(true);
             hiddenWall2.SetActive(true);
+            LevelIndicator.setLevel(6);
         }
 
         else if(level == 7)
@@ -261,6 +268,7 @@ public class PlayerController : MonoBehaviour
             this.transform.localScale = normalScale;
             hiddenWall1.SetActive(true);
             hiddenWall2.SetActive(true);
+            LevelIndicator.setLevel(7);
             finished = true;
         }
     }

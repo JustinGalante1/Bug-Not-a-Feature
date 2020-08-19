@@ -9,7 +9,7 @@ public class Pickup : MonoBehaviour
     private Material mat;
 
     private Color notHighlighted;
-    public Color highLighted;
+    private Color highLighted;
 
     private Transform playerHand;
 
@@ -20,13 +20,23 @@ public class Pickup : MonoBehaviour
     private bool beingHeld = false;
     public bool reset = false;
 
+    private Light myLight;
+
+    private bool changed;
+
     private void Start()
     {
         rb = this.GetComponent<Rigidbody>();
         myRenderer = this.GetComponent<Renderer>();
+        myLight = this.GetComponentInChildren<Light>();
+
+        myLight.intensity = 0;
+
         mat = myRenderer.material;
 
-        notHighlighted = mat.color;
+        notHighlighted = mat.GetColor("_EmissionColor");
+
+        changed = false;
 
         playerHand = GameObject.Find("Hand").transform;
 
@@ -39,7 +49,7 @@ public class Pickup : MonoBehaviour
     {
         if(rb.transform.position.y < -3)
         {
-            resetPosition();
+            resetPosition(false);
             reset = false;
         }
         if (beingHeld && !reset)
@@ -70,28 +80,35 @@ public class Pickup : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (!beingHeld)
+        myLight.intensity = 2;
+        if (!beingHeld && !changed)
         {
-            mat.color = highLighted;
+            changed = true;
+            mat.SetColor("_EmissionColor", notHighlighted * 8);
         }
     }
 
     private void OnMouseExit()
     {
+        myLight.intensity = 0;
         if (!beingHeld)
         {
-            mat.color = notHighlighted;
+            changed = false;
+            mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor")/8);
         }
     }
 
-    public void resetPosition()
+    public void resetPosition(bool fixScale)
     {
         reset = true;
         this.transform.parent = null;
         beingHeld = false;
         rb.transform.position = spawnPosition;
         rb.transform.rotation = spawnRotation;
-        rb.transform.localScale = spawnScale;
+        if (fixScale)
+        {
+            rb.transform.localScale = spawnScale;
+        }
         mat.color = notHighlighted;
     }
 }

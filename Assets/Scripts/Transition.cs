@@ -36,6 +36,7 @@ public class Transition : MonoBehaviour
     {
         if (other.CompareTag("Player") && hit == false)
         {
+            SoundManager.playSound("transition");
             hit = true;
         }
     }
