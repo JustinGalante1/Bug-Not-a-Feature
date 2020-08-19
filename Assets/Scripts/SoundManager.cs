@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip transition;
+    private static AudioClip transition;
 
     static AudioSource audioSrc;
 
