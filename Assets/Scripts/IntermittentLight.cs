@@ -12,9 +12,10 @@ public class IntermittentLight : MonoBehaviour
     float minFlickerSpeed = 0.08f;
     float maxFlickerSpeed = 0.1f;
 
+    public float speed;
+
     private void Start()
     {
-        randomized = false;
         amount = .03f;
         myLight = this.GetComponent<Light>();
         goingUp = false;
@@ -39,7 +40,7 @@ public class IntermittentLight : MonoBehaviour
         {
             if (myLight.range < 10)
             {
-                myLight.range += amount;
+                myLight.range += amount * Time.deltaTime * speed;
             }
             else
             {
@@ -50,7 +51,7 @@ public class IntermittentLight : MonoBehaviour
         {
             if(myLight.range > 3)
             {
-                myLight.range -= amount;
+                myLight.range -= amount * Time.deltaTime * speed;
             }
             else
             {

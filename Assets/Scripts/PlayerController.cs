@@ -110,15 +110,7 @@ public class PlayerController : MonoBehaviour
             {
                 rb.AddForce(Vector3.up * jumpHeight);
             }
-            else if(curLevel == 2)
-            {
-                if (isGrounded)
-                {
-                    rb.AddForce(Vector3.up * jumpHeight);
-                    isGrounded = false;
-                }
-            }
-            else if(curLevel >= 3)
+            else if(curLevel >= 2)
             {
                 if (isGrounded)
                 {

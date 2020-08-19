@@ -27,8 +27,8 @@ public class Transition : MonoBehaviour
     {
         if (hit && flicker.enabled == false)
         {
-            flicker.randomized = true;
             flicker.enabled = true;
+            flicker.randomized = true;
         }
     }
 
@@ -37,10 +37,6 @@ public class Transition : MonoBehaviour
         if (other.CompareTag("Player") && hit == false)
         {
             hit = true;
-            l.color = new Color(1f, 0, 1f);
-            Color purple = new Color(1f, 0, 1f);
-            purple.a = 0f;
-            mat.color = purple;
         }
     }
 }

@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomized: 0
+  speed: 400
 --- !u!1 &7087874062987920120
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +121,7 @@ GameObject:
   - component: {fileID: 7087874062987920123}
   - component: {fileID: 7087874062987920127}
   m_Layer: 0
-  m_Name: Transition 1 to 2
+  m_Name: Transition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
