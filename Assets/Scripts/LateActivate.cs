@@ -8,6 +8,8 @@ public class LateActivate : MonoBehaviour
 
     public GameObject target;
 
+    private bool done;
+
     private void Start()
     {
         if (target.activeInHierarchy)
@@ -18,7 +20,11 @@ public class LateActivate : MonoBehaviour
 
     public void startTimer()
     { 
-        StartCoroutine(lateStart());
+        if(done == false)
+        {
+            done = true;
+            StartCoroutine(lateStart());
+        }
     }
 
     IEnumerator lateStart()

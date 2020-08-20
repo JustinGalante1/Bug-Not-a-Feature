@@ -4,18 +4,30 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue dialogue;
+    private bool used;
 
-    private DialogueManager dm;
+    private IndividualDialogue id;
 
     private void Start()
     {
-        dm = GameObject.Find("Dialogue Manager").GetComponent<DialogueManager>();
+        id = this.GetComponent<IndividualDialogue>();
     }
 
-    public void triggerDialogue()
+    private void OnTriggerEnter(Collider other)
     {
-        dm.endDialogue();
-        dm.startDialogue(dialogue);
+        if (other.CompareTag("Player") && used == false)
+        {
+            id.triggerDialogue();
+            used = true;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Player") && used == false)
+        {
+            id.triggerDialogue();
+            used = true;
+        }
     }
 }
