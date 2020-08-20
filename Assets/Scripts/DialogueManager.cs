@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
-    private float hintDelay = 45;
+    public float hintDelay;
 
     private void Start()
     {
@@ -76,7 +76,7 @@ public class DialogueManager : MonoBehaviour
     {
         while(sentences.Count != 0)
         {
-            yield return new WaitForSeconds(45);
+            yield return new WaitForSeconds(hintDelay);
             displayNextSentence();
         }
     }
