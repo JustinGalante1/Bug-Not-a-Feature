@@ -80,9 +80,9 @@ public class Pickup : MonoBehaviour
 
     private void OnMouseOver()
     {
-        myLight.intensity = 2;
         if (!beingHeld && !changed)
         {
+            myLight.intensity = 2;
             changed = true;
             mat.SetColor("_EmissionColor", notHighlighted * 8);
         }
@@ -90,9 +90,9 @@ public class Pickup : MonoBehaviour
 
     private void OnMouseExit()
     {
-        myLight.intensity = 0;
         if (!beingHeld)
         {
+            myLight.intensity = 0;
             changed = false;
             mat.SetColor("_EmissionColor", mat.GetColor("_EmissionColor")/8);
         }

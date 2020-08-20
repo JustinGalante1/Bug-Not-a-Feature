@@ -12,6 +12,7 @@ public class LevelIndicator : MonoBehaviour
     private void Start()
     {
         myText = GetComponent<Text>();
+        myText.text = "";
         setLevel(1);
     }
 

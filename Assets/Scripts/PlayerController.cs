@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -189,6 +190,10 @@ public class PlayerController : MonoBehaviour
             if (collider.name == "Transition 6 to 7")
             {
                 levelUpdater(7);
+            }
+            if (collider.name == "Final Transition")
+            {
+                SceneManager.LoadScene("Victory");
             }
         }
     }

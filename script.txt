@@ -11,7 +11,7 @@
 "Don't worry, you won't die in here. Probably" (hint)
 "idek what to say" (close)
 -----------------------------LVL 4-----------------------------
-"I'm not a bad coder, am I? I'm gettin tired of fixing all my mistakes..." (intro)
+"Am I just trash at writing code? I'm gettin tired of fixing all my mistakes..." (intro)
 "Made sure to lock the box up real tight" (hint)
 "I'm actually not sure how to fix that" (close)
 -----------------------------LVL 5-----------------------------

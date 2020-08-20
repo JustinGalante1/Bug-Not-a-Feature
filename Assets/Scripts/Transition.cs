@@ -8,6 +8,7 @@ public class Transition : MonoBehaviour
     private IntermittentLight flicker;
     private Renderer myRenderer;
     private Material mat;
+    private DialogueTrigger dt;
 
     private bool hit;
 
@@ -16,6 +17,7 @@ public class Transition : MonoBehaviour
         l = this.GetComponentInChildren<Light>();
         flicker = this.GetComponentInChildren<IntermittentLight>();
         myRenderer = this.GetComponent<Renderer>();
+        dt = this.GetComponent<DialogueTrigger>();
         mat = myRenderer.material;
 
         flicker.enabled = false;
@@ -34,10 +36,14 @@ public class Transition : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && hit == false)
+        if(this.name != "Final Transition")
         {
-            SoundManager.playSound("transition");
-            hit = true;
+            if (other.CompareTag("Player") && hit == false)
+            {
+                SoundManager.playSound("transition");
+                hit = true;
+                dt.triggerDialogue();
+            }
         }
     }
 }
