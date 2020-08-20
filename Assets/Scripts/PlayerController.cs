@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         //levelIndicator = GameObject.Find("Level Indicator").GetComponent<LevelIndicator>();
 
         normalScale = this.transform.localScale;
-        halfScale = normalScale - new Vector3(0.25f, 0, 0.25f);
+        halfScale = normalScale - new Vector3(0.5f, 0, 0.5f);
 
         Vector3 gravityS = new Vector3(0, GravityStrength, 0);
         Physics.gravity = gravityS;
@@ -191,10 +191,11 @@ public class PlayerController : MonoBehaviour
             {
                 levelUpdater(7);
             }
-            if (collider.name == "Final Transition")
-            {
-                SceneManager.LoadScene("Victory");
-            }
+        }
+        if (collider.name == "Final Transition")
+        {
+            print("donezo");
+            SceneManager.LoadScene("Victory");
         }
     }
 
