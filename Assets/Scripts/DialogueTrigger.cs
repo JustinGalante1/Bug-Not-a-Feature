@@ -8,6 +8,8 @@ public class DialogueTrigger : MonoBehaviour
 
     private IndividualDialogue id;
 
+    public bool active;
+
     private void Start()
     {
         id = this.GetComponent<IndividualDialogue>();
@@ -24,7 +26,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Player") && used == false)
+        if (collision.collider.CompareTag("Player") && used == false && active)
         {
             id.triggerDialogue();
             used = true;

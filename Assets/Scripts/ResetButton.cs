@@ -6,6 +6,13 @@ public class ResetButton : MonoBehaviour
 {
     bool activated;
 
+    private DialogueTrigger dt;
+
+    private void Start()
+    {
+        dt = this.GetComponent<DialogueTrigger>();
+    }
+
     private void Update()
     {
         if(activated == false)
@@ -19,6 +26,7 @@ public class ResetButton : MonoBehaviour
         if (collision.collider.CompareTag("Player") && activated)
         {
             collision.collider.transform.position = new Vector3(2, 2, -9);
+            dt.active = true;
         }
     }
 }

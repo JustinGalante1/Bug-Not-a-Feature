@@ -14,11 +14,14 @@ public class PauseMenu : MonoBehaviour
 
     private PlayerController pc;
 
+    private DialogueManager dm;
+
     private void Start()
     {
         menu = GameObject.Find("Pause Menu");
         lsMenu = GameObject.Find("Select Level Menu");
         pc = GameObject.Find("Player").GetComponent<PlayerController>();
+        dm = GameObject.Find("Dialogue Manager").GetComponent<DialogueManager>();
 
         menu.SetActive(false);
         isPaused = false;
@@ -68,7 +71,13 @@ public class PauseMenu : MonoBehaviour
         {
             menu.SetActive(false);
             lsMenu.SetActive(true);
-        }  
+        }
+        else
+        {
+            Dialogue levelSelectNotReady = new Dialogue();
+            levelSelectNotReady.sentences = new string[1] { "Oops, that's not ready yet" };
+            dm.startDialogue(levelSelectNotReady);
+        }
     }
 
     public void closeLevelSelect()
