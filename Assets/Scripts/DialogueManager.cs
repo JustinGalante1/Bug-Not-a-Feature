@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
         myText = GameObject.Find("ChatBox").GetComponent<Text>();
 
         initialDialogue = new Dialogue();
-        initialDialogue.sentences = new string[2]{"Welcome to the Universe. Good luck making that jump", "Pretty unlucky you only have one jump, isn't it"};
+        initialDialogue.sentences = new string[2]{"Welcome to the Universe. The universe of optimal code with no bugs whatsoever. Good luck making that jump", "Pretty unlucky you only have one jump, isn't it"};
         initialDialogue.lvlName = "level1";
 
         sentences = new Queue<string>();
