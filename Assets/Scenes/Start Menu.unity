@@ -31541,7 +31541,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'This game is inspired by Sam Hogan''s "Grey Box Testing". I tried to take
-    his idea of having intenional bugs and go one step further in the sense that
+    his idea of having intentional bugs and go one step further in the sense that
     once a player uses a bug to progress, the game "fixes" said bug.
 
 
