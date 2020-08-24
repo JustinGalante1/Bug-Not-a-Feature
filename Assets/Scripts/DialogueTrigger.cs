@@ -30,6 +30,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             id.triggerDialogue();
             used = true;
+            this.gameObject.SetActive(false);
         }
     }
 }
