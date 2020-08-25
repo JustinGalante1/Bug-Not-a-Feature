@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     private Pickup level5Box;
     private GameObject hiddenWall1;
     private GameObject hiddenWall2;
+    private GameObject hiddenWall3;
+    private GameObject hiddenWall4;
 
     //private LevelIndicator levelIndicator;
 
@@ -61,6 +63,8 @@ public class PlayerController : MonoBehaviour
 
         hiddenWall1 = GameObject.Find("Hidden Wall1");
         hiddenWall2 = GameObject.Find("Hidden Wall2");
+        hiddenWall3 = GameObject.Find("Hidden Wall3");
+        hiddenWall4 = GameObject.Find("Hidden Wall4");
 
         levelUpdater(1);
     }
@@ -214,6 +218,8 @@ public class PlayerController : MonoBehaviour
             this.transform.localScale = normalScale;
             hiddenWall1.SetActive(true);
             hiddenWall2.SetActive(true);
+            hiddenWall3.SetActive(true);
+            hiddenWall4.SetActive(true);
             LevelIndicator.setLevel(1);
         }
 
@@ -224,6 +230,8 @@ public class PlayerController : MonoBehaviour
             this.transform.localScale = normalScale;
             hiddenWall1.SetActive(true);
             hiddenWall2.SetActive(true);
+            hiddenWall3.SetActive(true);
+            hiddenWall4.SetActive(true);
             LevelIndicator.setLevel(2);
         }
 
@@ -234,6 +242,8 @@ public class PlayerController : MonoBehaviour
             this.transform.localScale = normalScale;
             hiddenWall1.SetActive(false);
             hiddenWall2.SetActive(false);
+            hiddenWall3.SetActive(false);
+            hiddenWall4.SetActive(false);
             LevelIndicator.setLevel(3);
         }
 
@@ -244,6 +254,8 @@ public class PlayerController : MonoBehaviour
             this.transform.localScale = normalScale;
             hiddenWall1.SetActive(true);
             hiddenWall2.SetActive(true);
+            hiddenWall3.SetActive(true);
+            hiddenWall4.SetActive(true);
             LevelIndicator.setLevel(4);
         }
 
@@ -254,6 +266,8 @@ public class PlayerController : MonoBehaviour
             this.transform.localScale = halfScale;
             hiddenWall1.SetActive(true);
             hiddenWall2.SetActive(true);
+            hiddenWall3.SetActive(true);
+            hiddenWall4.SetActive(true);
             LevelIndicator.setLevel(5);
         }
 
@@ -264,6 +278,8 @@ public class PlayerController : MonoBehaviour
             this.transform.localScale = normalScale;
             hiddenWall1.SetActive(true);
             hiddenWall2.SetActive(true);
+            hiddenWall3.SetActive(true);
+            hiddenWall4.SetActive(true);
             LevelIndicator.setLevel(6);
         }
 
@@ -274,6 +290,8 @@ public class PlayerController : MonoBehaviour
             this.transform.localScale = normalScale;
             hiddenWall1.SetActive(true);
             hiddenWall2.SetActive(true);
+            hiddenWall3.SetActive(true);
+            hiddenWall4.SetActive(true);
             LevelIndicator.setLevel(7);
             finished = true;
         }

@@ -31550,20 +31550,20 @@ MonoBehaviour:
     for you to see. So pay attention to EVERYTHING.
 
 
-    It IS possible to soft
-    lock yourself (meaning you get into a situation in which you can no longer progress),
-    but it''s not very common. If this happens, hit the Reset button in the pause
-    menu.
+    The Reset Button is there
+    for if you think you somehow are stuck, but I don''t think it''s possible to
+    get stuck unless you found a bug that wasn''t actually intended.
 
 
-    This is my first completed project, so it won''t be perfect. Some
-    of the mechanics might be a little janky and not everything might be as clear
-    as I thought. So sorry in advance. I''m probably going to make a video showing
-    MY solution to this game, so if you really get stuck, you can watch it.
+    This is
+    my first completed project, so it won''t be perfect. Some of the mechanics might
+    be a little janky and not everything might be as clear as I thought. So sorry
+    in advance. I''m probably going to make a video showing MY solution to this game,
+    so if you really can''t get to the end, watch it.
 
 
-    Big
-    thanks to everyone who helped test this game and provided feedback. '
+    Big thanks to everyone
+    who helped test this game and provided feedback. '
 --- !u!222 &1078663647
 CanvasRenderer:
   m_ObjectHideFlags: 0
